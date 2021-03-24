@@ -20,10 +20,10 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Мой хуй твёрдый" />
+        tools:text="Мой *** твёрдый" />
 
     <TextView
-        android:id="@+id/data_text"
+        android:id="@+id/date_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/default_margin_in_item"
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/data_text">
+        app:layout_constraintTop_toBottomOf="@id/date_text">
 
         <TextView
             android:id="@+id/content_text"
@@ -52,7 +52,7 @@
             android:textColor="@color/text_note_color"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/data_text"
+            app:layout_constraintTop_toBottomOf="@+id/date_text"
             tools:text="вфывждт авыфатыдлипды пыодж рпидфиап ап фдапидвалоыипт лвдоап вфвпоат двфалотп яопт аловфятп лавяоатп лвяотп яваопт явь" />
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
