@@ -1,14 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/main_background"
     tools:context=".screens.start.StartFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/first_card_view"
+        android:layout_width="@dimen/first_cardview_width"
+        android:layout_height="@dimen/cardview_height"
+        android:layout_marginTop="@dimen/first_default_margin"
+        app:cardCornerRadius="@dimen/first_corner_radius"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-</FrameLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/cardview_dark_background"
+            android:gravity="center"
+            android:text="@string/start_fragment_text"
+            android:textColor="@color/text_note_color"
+            android:textSize="@dimen/start_text_size" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/second_card_view"
+        android:layout_width="@dimen/second_cardview_width"
+        android:layout_height="@dimen/cardview_height"
+        android:layout_marginTop="@dimen/first_default_margin"
+        app:cardCornerRadius="@dimen/first_corner_radius"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/first_card_view">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/cardview_dark_background"
+            android:text="@string/start_text_room"
+            android:textColor="@color/text_note_color"
+            android:textSize="@dimen/start_button_text_size" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/third_card_view"
+        android:layout_width="@dimen/second_cardview_width"
+        android:layout_height="@dimen/cardview_height"
+        android:layout_marginTop="@dimen/first_default_margin"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="@dimen/first_corner_radius"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/second_card_view">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/cardview_dark_background"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/start_text_firebase"
+            android:textColor="@color/text_note_color"
+            android:textSize="@dimen/start_button_text_size" />
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

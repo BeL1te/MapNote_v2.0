@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_shadow">10dp</dimen>
+    <dimen name="card_radius">20dp</dimen>
+    <dimen name="title_size">20sp</dimen>
+    <dimen name="data_text_size">14sp</dimen>
+    <dimen name="default_margin_in_item">10dp</dimen>
+    <dimen name="default_layout_margin">16dp</dimen>
+    <dimen name="start_text_size">16sp</dimen>
+    <dimen name="start_button_text_size">14sp</dimen>
+    <dimen name="first_cardview_width">200dp</dimen>
+    <dimen name="cardview_height">40dp</dimen>
+    <dimen name="second_cardview_width">150dp</dimen>
+    <dimen name="first_default_margin">120dp</dimen>
+    <dimen name="first_corner_radius">20dp</dimen>
+</resources>
