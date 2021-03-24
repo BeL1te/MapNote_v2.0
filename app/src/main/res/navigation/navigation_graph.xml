@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/addNoteFragment"
+        android:name="com.be1te.big.notemap.screens.add.AddNoteFragment"
+        android:label="fragment_add_note"
+        tools:layout="@layout/fragment_add_note" >
+        <action
+            android:id="@+id/action_addNoteFragment_to_listNoteFragment"
+            app:destination="@id/listNoteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listNoteFragment"
+        android:name="com.be1te.big.notemap.screens.list.ListNoteFragment"
+        android:label="fragment_list_note"
+        tools:layout="@layout/fragment_list_note" >
+        <action
+            android:id="@+id/action_listNoteFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+        <action
+            android:id="@+id/action_listNoteFragment_to_noteFragment"
+            app:destination="@id/noteFragment" />
+        <action
+            android:id="@+id/action_listNoteFragment_to_addNoteFragment"
+            app:destination="@id/addNoteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.be1te.big.notemap.screens.start.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_listNoteFragment"
+            app:destination="@id/listNoteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteFragment"
+        android:name="com.be1te.big.notemap.screens.note.NoteFragment"
+        android:label="fragment_note"
+        tools:layout="@layout/fragment_note" >
+        <action
+            android:id="@+id/action_noteFragment_to_listNoteFragment"
+            app:destination="@id/listNoteFragment" />
+    </fragment>
+</navigation>
