@@ -6,4 +6,6 @@
     <string name="start_fragment_text">Choose database</string>
     <string name="start_text_room">Room</string>
     <string name="start_text_firebase">firebase</string>
+    <string name="add_button">Add</string>
+    <string name="title">Notes</string>
 </resources>
