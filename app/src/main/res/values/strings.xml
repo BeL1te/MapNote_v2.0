@@ -2,4 +2,8 @@
     <string name="app_name">MapNoteV2</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="todo">TODO</string>
+    <string name="start_fragment_text">Choose database</string>
+    <string name="start_text_room">Room</string>
+    <string name="start_text_firebase">firebase</string>
 </resources>
