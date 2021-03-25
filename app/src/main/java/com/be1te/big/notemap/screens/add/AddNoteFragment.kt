@@ -1,10 +1,8 @@
 package com.be1te.big.notemap.screens.add
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.be1te.big.notemap.R
 import com.be1te.big.notemap.databinding.FragmentAddNoteBinding
@@ -33,18 +31,31 @@ class AddNoteFragment : Fragment() {
     }
 
     private fun initialization() {
+        setHasOptionsMenu(true)
         mViewModel = ViewModelProvider(this).get(AddNoteFragmentViewModel::class.java)
-        add_note_button.setOnClickListener {
-            val title = mBinding.editTitle.text.toString()
-            val content = mBinding.editContent.text.toString()
-            if (edit_title.text.isEmpty()) {
-                doToast("Введите заголовок")
-            } else {
-                mViewModel.insert(Note(title = title, date = currentData(), coordinatesX = "0", coordinatesY = "0", content = content)) {
-                    APP_ACTIVITY.navController.navigate(R.id.action_addNoteFragment_to_listNoteFragment)
-                }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.add_note_action_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val title = mBinding.editTitle.text.toString()
+        val content = mBinding.editContent.text.toString()
+        when (item.itemId) {
+            R.id.btn_add -> if (edit_title.text.isEmpty()) doToast("Введите заголовок") else mViewModel.insert(
+                Note(
+                    title = title,
+                    date = currentData(),
+                    coordinatesX = "0",
+                    coordinatesY = "0",
+                    content = content
+                )
+            ) {
+                APP_ACTIVITY.navController.navigate(R.id.action_addNoteFragment_to_listNoteFragment)
             }
         }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onDestroyView() {
