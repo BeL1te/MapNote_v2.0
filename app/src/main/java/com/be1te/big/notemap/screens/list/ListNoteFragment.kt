@@ -10,13 +10,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.be1te.big.notemap.R
 import com.be1te.big.notemap.databinding.FragmentListNoteBinding
-import com.be1te.big.notemap.databinding.FragmentStartBinding
 import com.be1te.big.notemap.db.room.Note
-import com.be1te.big.notemap.screens.start.StartFragmentViewModel
 import com.be1te.big.notemap.utilits.APP_ACTIVITY
-import com.be1te.big.notemap.utilits.TYPE_ROOM
 import kotlinx.android.synthetic.main.fragment_list_note.*
-import kotlinx.android.synthetic.main.fragment_start.*
 
 class ListNoteFragment : Fragment() {
 
@@ -51,14 +47,22 @@ class ListNoteFragment : Fragment() {
         mViewModel = ViewModelProvider(this).get(ListNoteFragmentViewModel::class.java)
         mViewModel.allNotes.observe(this, mObserverList)
         new_note.setOnClickListener {
-            APP_ACTIVITY.mNavController.navigate(R.id.action_listNoteFragment_to_addNoteFragment)
+            APP_ACTIVITY.navController.navigate(R.id.action_listNoteFragment_to_addNoteFragment)
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         _binding = null
         mViewModel.allNotes.removeObserver(mObserverList)
         mRecyclerView.adapter = null
+    }
+
+    companion object {
+        fun click(note: Note) {
+            val bundle = Bundle()
+            bundle.putSerializable("note", note)
+            APP_ACTIVITY.navController.navigate(R.id.action_listNoteFragment_to_noteFragment, bundle)
+        }
     }
 }

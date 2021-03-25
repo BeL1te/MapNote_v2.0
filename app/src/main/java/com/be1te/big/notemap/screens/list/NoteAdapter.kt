@@ -1,6 +1,5 @@
 package com.be1te.big.notemap.screens.list
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +15,17 @@ class NoteAdapter : RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.note_item, parent, false)
         return ViewHolder(view)
+    }
+
+    override fun onViewAttachedToWindow(holder: ViewHolder) {
+        holder.itemView.setOnClickListener {
+            ListNoteFragment.click(mListNotes[holder.adapterPosition])
+        }
+    }
+
+    override fun onViewDetachedFromWindow(holder: ViewHolder) {
+        holder.itemView.setOnClickListener(null)
+        super.onViewDetachedFromWindow(holder)
     }
 
     override fun getItemCount(): Int = mListNotes.size
@@ -35,11 +45,5 @@ class NoteAdapter : RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
         val title = view.item_title_text
         val date = view.item_date_text
         val content = view.item_content_text
-
-        fun bind(note: Note, context: Context) {
-            title.text = note.title
-            date.text = note.date
-            content.text = note.content
-        }
     }
 }

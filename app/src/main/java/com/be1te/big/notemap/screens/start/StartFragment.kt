@@ -10,7 +10,6 @@ import com.be1te.big.notemap.R
 import com.be1te.big.notemap.databinding.FragmentStartBinding
 import com.be1te.big.notemap.utilits.APP_ACTIVITY
 import com.be1te.big.notemap.utilits.TYPE_ROOM
-import kotlinx.android.synthetic.main.fragment_start.*
 
 
 class StartFragment : Fragment() {
@@ -34,15 +33,15 @@ class StartFragment : Fragment() {
 
     private fun initialization() {
         mViewModel = ViewModelProvider(this).get(StartFragmentViewModel::class.java)
-        btn_room.setOnClickListener {
+        mBinding.btnRoom.setOnClickListener {
             mViewModel.initDatabase(TYPE_ROOM) {
-                APP_ACTIVITY.mNavController.navigate(R.id.action_startFragment_to_listNoteFragment)
+                APP_ACTIVITY.navController.navigate(R.id.action_startFragment_to_listNoteFragment)
             }
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         _binding = null
     }
 }

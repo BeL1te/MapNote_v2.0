@@ -2,6 +2,7 @@ package com.be1te.big.notemap.db.room
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity(tableName = "notes_table")
 data class Note(
@@ -12,7 +13,7 @@ data class Note(
     var coordinatesX: String,
     var coordinatesY: String,
     var content: String
-) {
+) : Serializable {
     override fun toString(): String {
         return "$title $coordinatesX $coordinatesY $content $date"
     }

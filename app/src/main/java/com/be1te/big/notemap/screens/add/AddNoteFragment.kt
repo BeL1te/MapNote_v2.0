@@ -9,10 +9,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.be1te.big.notemap.R
 import com.be1te.big.notemap.databinding.FragmentAddNoteBinding
 import com.be1te.big.notemap.db.room.Note
-import com.be1te.big.notemap.screens.start.StartFragmentViewModel
 import com.be1te.big.notemap.utilits.*
 import kotlinx.android.synthetic.main.fragment_add_note.*
-import kotlinx.android.synthetic.main.fragment_start.*
 
 
 class AddNoteFragment : Fragment() {
@@ -43,13 +41,14 @@ class AddNoteFragment : Fragment() {
                 doToast("Введите заголовок")
             } else {
                 mViewModel.insert(Note(title = title, date = currentData(), coordinatesX = "0", coordinatesY = "0", content = content)) {
-                    APP_ACTIVITY.mNavController.navigate(R.id.action_addNoteFragment_to_listNoteFragment)
+                    APP_ACTIVITY.navController.navigate(R.id.action_addNoteFragment_to_listNoteFragment)
                 }
             }
         }
     }
 
-    override fun onDestroy() {
+    override fun onDestroyView() {
+        super.onDestroyView()
         super.onDestroy()
         _binding = null
     }
