@@ -33,6 +33,7 @@ class AddNoteFragment : Fragment() {
     private fun initialization() {
         setHasOptionsMenu(true)
         mViewModel = ViewModelProvider(this).get(AddNoteFragmentViewModel::class.java)
+        mViewModel.setTitle()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

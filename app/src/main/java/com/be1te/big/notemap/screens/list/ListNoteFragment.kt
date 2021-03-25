@@ -45,6 +45,7 @@ class ListNoteFragment : Fragment() {
             mAdapter.setList(list)
         }
         mViewModel = ViewModelProvider(this).get(ListNoteFragmentViewModel::class.java)
+        mViewModel.getTitle()
         mViewModel.allNotes.observe(this, mObserverList)
         new_note.setOnClickListener {
             APP_ACTIVITY.navController.navigate(R.id.action_listNoteFragment_to_addNoteFragment)

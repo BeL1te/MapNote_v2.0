@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.be1te.big.notemap.db.room.Note
+import com.be1te.big.notemap.utilits.APP_ACTIVITY
 import com.be1te.big.notemap.utilits.REPOSITORY
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -15,5 +16,9 @@ class NoteFragmentViewModel(application: Application) : AndroidViewModel(applica
                 onSuccess()
             }
         }
+    }
+
+    fun setTitle(title: String) {
+        APP_ACTIVITY.title = title
     }
 }

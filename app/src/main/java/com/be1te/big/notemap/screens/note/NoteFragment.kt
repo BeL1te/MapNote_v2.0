@@ -33,7 +33,7 @@ class NoteFragment : Fragment() {
     private fun initialization() {
         setHasOptionsMenu(true)
         mViewModel = ViewModelProvider(this).get(NoteFragmentViewModel::class.java)
-        mBinding.titleText.text = mCurrentNote.title
+        mViewModel.setTitle(mCurrentNote.title)
         mBinding.dateText.text = mCurrentNote.date
         mBinding.contentText.text = mCurrentNote.content
     }

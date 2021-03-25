@@ -8,4 +8,5 @@
     <string name="start_text_firebase">firebase</string>
     <string name="add_button">Add</string>
     <string name="title">Notes</string>
+    <string name="add_note">Add Note</string>
 </resources>
