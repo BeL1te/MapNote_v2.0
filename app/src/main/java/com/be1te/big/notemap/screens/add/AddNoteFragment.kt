@@ -44,7 +44,7 @@ class AddNoteFragment : Fragment() {
         val title = mBinding.editTitle.text.toString()
         val content = mBinding.editContent.text.toString()
         when (item.itemId) {
-            R.id.btn_add -> if (edit_title.text.isEmpty()) doToast("Введите заголовок") else mViewModel.insert(
+            R.id.btn_add -> if (mBinding.editTitle.text.isEmpty()) doToast("Enter title") else mViewModel.insert(
                 Note(
                     title = title,
                     date = currentData(),
@@ -59,9 +59,23 @@ class AddNoteFragment : Fragment() {
         return super.onOptionsItemSelected(item)
     }
 
+    override fun onStop() {
+        super.onStop()
+        if (mBinding.editTitle.text.isNotEmpty()) {
+            val title = mBinding.editTitle.text.toString()
+            val content = mBinding.editContent.text.toString()
+            mViewModel.insert(Note(
+                title = title,
+                date = currentData(),
+                coordinatesX = "0",
+                coordinatesY = "0",
+                content = content)) { doToast("Note saved") }
+        }
+    }
+
+
     override fun onDestroyView() {
         super.onDestroyView()
-        super.onDestroy()
         _binding = null
     }
 }
