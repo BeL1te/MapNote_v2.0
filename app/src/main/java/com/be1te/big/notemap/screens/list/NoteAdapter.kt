@@ -33,7 +33,10 @@ class NoteAdapter : RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.title.text = mListNotes[position].title
         holder.date.text = mListNotes[position].date
-        holder.content.text = mListNotes[position].content
+        if (mListNotes[position].content.length > 63) {
+            holder.content.text = mListNotes[position].content.substring(0, 63) + context.getString(
+                            R.string.dots)
+        } else holder.content.text = mListNotes[position].content
     }
 
     fun setList(list: List<Note>) {
