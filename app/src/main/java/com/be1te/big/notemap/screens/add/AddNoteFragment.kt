@@ -43,7 +43,6 @@ class AddNoteFragment : Fragment() {
         setHasOptionsMenu(true)
         mViewModel = ViewModelProvider(this).get(AddNoteFragmentViewModel::class.java)
         mViewModel.setTitle()
-        mViewModel.setColorToolbar()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
