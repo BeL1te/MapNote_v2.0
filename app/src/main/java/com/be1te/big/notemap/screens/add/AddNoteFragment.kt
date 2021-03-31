@@ -9,6 +9,7 @@ import com.be1te.big.notemap.databinding.FragmentAddNoteBinding
 import com.be1te.big.notemap.db.room.Note
 import com.be1te.big.notemap.screens.map.MapFragment
 import com.be1te.big.notemap.utilits.*
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 
 class AddNoteFragment : Fragment() {
@@ -23,8 +24,13 @@ class AddNoteFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentAddNoteBinding.inflate(layoutInflater)
+
+//        val mBottomSheetBehavior = BottomSheetBehavior.from(mBinding.bottomSheet)
+//
+
         val fragment = MapFragment()
         parentFragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit()
+
         return mBinding.root
     }
 
@@ -37,6 +43,7 @@ class AddNoteFragment : Fragment() {
         setHasOptionsMenu(true)
         mViewModel = ViewModelProvider(this).get(AddNoteFragmentViewModel::class.java)
         mViewModel.setTitle()
+        mViewModel.setColorToolbar()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
