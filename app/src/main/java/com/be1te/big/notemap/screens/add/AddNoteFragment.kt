@@ -7,8 +7,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.be1te.big.notemap.R
 import com.be1te.big.notemap.databinding.FragmentAddNoteBinding
 import com.be1te.big.notemap.db.room.Note
+import com.be1te.big.notemap.screens.map.MapFragment
 import com.be1te.big.notemap.utilits.*
-import kotlinx.android.synthetic.main.fragment_add_note.*
 
 
 class AddNoteFragment : Fragment() {
@@ -17,11 +17,14 @@ class AddNoteFragment : Fragment() {
     private val mBinding get() = _binding!!
     private lateinit var mViewModel: AddNoteFragmentViewModel
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentAddNoteBinding.inflate(layoutInflater)
+        val fragment = MapFragment()
+        parentFragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit()
         return mBinding.root
     }
 

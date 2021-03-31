@@ -1,5 +1,6 @@
 package com.be1te.big.notemap.screens.list
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,8 +35,8 @@ class NoteAdapter : RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
         holder.title.text = mListNotes[position].title
         holder.date.text = mListNotes[position].date
         if (mListNotes[position].content.length > 63) {
-            holder.content.text = mListNotes[position].content.substring(0, 63) + context.getString(
-                            R.string.dots)
+            holder.content.text =
+                ("""${mListNotes[position].content.substring(0, 63)}...""")
         } else holder.content.text = mListNotes[position].content
     }
 

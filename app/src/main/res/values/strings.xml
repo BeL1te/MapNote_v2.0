@@ -10,4 +10,7 @@
     <string name="title">Notes</string>
     <string name="add_note">Add Note</string>
     <string name="dots">...</string>
+    <string name="add_title">Title</string>
+    <string name="add_content">Note</string>
+    <string name="google_maps_key">AIzaSyAuWeO9IzC4i2LZZmFOUQusr_FQ22OuTbk</string>
 </resources>
