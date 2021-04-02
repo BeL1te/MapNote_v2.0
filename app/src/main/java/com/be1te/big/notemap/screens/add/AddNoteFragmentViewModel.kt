@@ -22,8 +22,4 @@ class AddNoteFragmentViewModel(application: Application) : AndroidViewModel(appl
     fun setTitle() {
         APP_ACTIVITY.title = "Add Note"
     }
-
-    fun setColorToolbar() {
-        APP_ACTIVITY.mToolbar.setBackgroundColor(100000)
-    }
 }

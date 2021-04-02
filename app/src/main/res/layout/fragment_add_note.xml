@@ -5,9 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main_background"
-    tools:context=".screens.add.AddNoteFragment"
-    >
-
+    tools:context=".screens.add.AddNoteFragment">
 
     <FrameLayout
         android:id="@+id/frame_layout"
@@ -17,66 +15,61 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-
     <androidx.core.widget.NestedScrollView
         android:id="@+id/bottom_sheet"
         android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_height="match_parent"
         android:background="@color/main_background"
-        app:behavior_peekHeight="55dp"
+        app:behavior_peekHeight="65dp"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:background="@color/toolbar_back">
 
-            <TextView
-                android:id="@+id/nested_map_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:text="Это карта, сынок"
-                app:layout_constraintEnd_toEndOf="parent"
+            <EditText
+                android:id="@+id/edit_title"
+                android:layout_width="350dp"
+                android:layout_height="65dp"
+                android:layout_weight="1"
+                android:background="@color/toolbar_back"
+                android:drawableStart="@drawable/ic_title"
+                android:drawablePadding="@dimen/default_layout_margin"
+                android:gravity="center_vertical"
+                android:hint="@string/add_title"
+                android:maxLength="23"
+                android:paddingStart="@dimen/default_layout_margin"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_view_add_title"
+            <ImageView
+                android:id="@+id/arrow_top"
+                android:layout_width="wrap_content"
+                android:layout_height="65dp"
+                android:padding="16dp"
+                android:paddingEnd="@dimen/default_layout_margin"
+                android:src="@drawable/ic_arrow_up"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/edit_title"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/edit_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/cardview_dark_background"
+                android:background="@color/main_background"
+                android:drawableStart="@drawable/ic_note"
+                android:drawablePadding="@dimen/default_layout_margin"
+                android:paddingStart="@dimen/default_layout_margin"
+                android:paddingTop="@dimen/default_layout_margin"
+                android:paddingBottom="@dimen/default_layout_margin"
+                android:hint="@string/add_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/nested_map_text">
-
-                <EditText
-                    android:id="@+id/edit_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/add_title"
-                    android:maxLength="15" />
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_view_add_content"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/cardview_dark_background"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/card_view_add_title">
-
-                <EditText
-                    android:id="@+id/edit_content"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/add_content"
-                    android:maxLength="255" />
-            </androidx.cardview.widget.CardView>
+                app:layout_constraintTop_toBottomOf="@+id/edit_title" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
