@@ -8,8 +8,12 @@ import com.be1te.big.notemap.R
 import com.be1te.big.notemap.databinding.FragmentAddNoteBinding
 import com.be1te.big.notemap.db.room.Note
 import com.be1te.big.notemap.screens.map.MapFragment
-import com.be1te.big.notemap.utilits.*
+import com.be1te.big.notemap.utilits.APP_ACTIVITY
+import com.be1te.big.notemap.utilits.COORDINATE_X
+import com.be1te.big.notemap.utilits.currentData
+import com.be1te.big.notemap.utilits.doToast
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
 
 
 class AddNoteFragment : Fragment() {
@@ -17,6 +21,7 @@ class AddNoteFragment : Fragment() {
     private var _binding: FragmentAddNoteBinding? = null
     private val mBinding get() = _binding!!
     private lateinit var mViewModel: AddNoteFragmentViewModel
+    private lateinit var mBottomSheetBehavior: BottomSheetBehavior<View>
 
 
     override fun onCreateView(
@@ -25,8 +30,7 @@ class AddNoteFragment : Fragment() {
     ): View? {
         _binding = FragmentAddNoteBinding.inflate(layoutInflater)
 
-//        val mBottomSheetBehavior = BottomSheetBehavior.from(mBinding.bottomSheet)
-//
+        mBottomSheetBehavior = BottomSheetBehavior.from(mBinding.bottomSheet)
 
         val fragment = MapFragment()
         parentFragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit()
@@ -43,6 +47,24 @@ class AddNoteFragment : Fragment() {
         setHasOptionsMenu(true)
         mViewModel = ViewModelProvider(this).get(AddNoteFragmentViewModel::class.java)
         mViewModel.setTitle()
+        mBinding.arrowTop.setOnClickListener {
+            if (mBottomSheetBehavior.state == BottomSheetBehavior.STATE_COLLAPSED) {
+                mBottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
+            }
+            if (mBottomSheetBehavior.state == BottomSheetBehavior.STATE_EXPANDED) {
+                mBottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+            }
+        }
+
+        mBottomSheetBehavior.addBottomSheetCallback(object :
+            BottomSheetBehavior.BottomSheetCallback() {
+            override fun onSlide(bottomSheet: View, slideOffset: Float) {
+                mBinding.arrowTop.rotation = slideOffset * 180
+            }
+
+            override fun onStateChanged(bottomSheet: View, newState: Int) {
+            }
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -73,12 +95,15 @@ class AddNoteFragment : Fragment() {
         if (mBinding.editTitle.text.isNotEmpty()) {
             val title = mBinding.editTitle.text.toString()
             val content = mBinding.editContent.text.toString()
-            mViewModel.insert(Note(
-                title = title,
-                date = currentData(),
-                coordinatesX = "0",
-                coordinatesY = "0",
-                content = content)) { doToast("Note saved") }
+            mViewModel.insert(
+                Note(
+                    title = title,
+                    date = currentData(),
+                    coordinatesX = "0",
+                    coordinatesY = "0",
+                    content = content
+                )
+            ) { doToast("Note saved") }
         }
     }
 
