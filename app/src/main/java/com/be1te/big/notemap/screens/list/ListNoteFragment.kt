@@ -39,8 +39,8 @@ class ListNoteFragment : Fragment() {
     }
 
     private fun initialization() {
-        COORDINATE_X = "0.0"
-        COORDINATE_Y = "0.0"
+        mViewModel = ViewModelProvider(this).get(ListNoteFragmentViewModel::class.java)
+        mViewModel.initializeCoordinates()
         mAdapter = NoteAdapter()
         mRecyclerView = mBinding.rvList
         mRecyclerView.adapter = mAdapter
@@ -48,13 +48,14 @@ class ListNoteFragment : Fragment() {
             val list = it.asReversed()
             mAdapter.setList(list)
         }
-        mViewModel = ViewModelProvider(this).get(ListNoteFragmentViewModel::class.java)
+
         mViewModel.getTitle()
         mViewModel.allNotes.observe(this, mObserverList)
         new_note.setOnClickListener {
             APP_ACTIVITY.navController.navigate(R.id.action_listNoteFragment_to_addNoteFragment)
         }
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
@@ -69,7 +70,10 @@ class ListNoteFragment : Fragment() {
             bundle.putSerializable("note", note)
             COORDINATE_X = note.coordinatesX
             COORDINATE_Y = note.coordinatesY
-            APP_ACTIVITY.navController.navigate(R.id.action_listNoteFragment_to_noteFragment, bundle)
+            APP_ACTIVITY.navController.navigate(
+                R.id.action_listNoteFragment_to_noteFragment,
+                bundle
+            )
         }
     }
 }

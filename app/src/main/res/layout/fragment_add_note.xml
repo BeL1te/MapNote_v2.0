@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/main_background"
-        app:behavior_peekHeight="65dp"
+        app:behavior_peekHeight="@dimen/peekHeight"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,8 +30,8 @@
 
             <EditText
                 android:id="@+id/edit_title"
-                android:layout_width="350dp"
-                android:layout_height="65dp"
+                android:layout_width="@dimen/width_for_enter_title"
+                android:layout_height="@dimen/peekHeight"
                 android:layout_weight="1"
                 android:background="@color/toolbar_back"
                 android:drawableStart="@drawable/ic_title"
@@ -46,7 +46,7 @@
             <ImageView
                 android:id="@+id/arrow_top"
                 android:layout_width="wrap_content"
-                android:layout_height="65dp"
+                android:layout_height="@dimen/peekHeight"
                 android:padding="16dp"
                 android:paddingEnd="@dimen/default_layout_margin"
                 android:src="@drawable/ic_arrow_up"

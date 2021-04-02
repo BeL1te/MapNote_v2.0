@@ -13,4 +13,6 @@
     <dimen name="second_cardview_width">150dp</dimen>
     <dimen name="first_default_margin">120dp</dimen>
     <dimen name="first_corner_radius">20dp</dimen>
+    <dimen name="width_for_enter_title">350dp</dimen>
+    <dimen name="peekHeight">65dp</dimen>
 </resources>

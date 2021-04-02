@@ -28,9 +28,13 @@ class MapFragment : Fragment() {
         } else {
             LatLng(COORDINATE_X.toDouble(), COORDINATE_Y.toDouble())
         }
+
+
         googleMap.addMarker(
             MarkerOptions().position(location).draggable(true).title("MyPlace")
         )
+
+
         googleMap.setOnMarkerDragListener(object : GoogleMap.OnMarkerDragListener {
             override fun onMarkerDragEnd(p0: Marker?) {
                 if (p0 != null) {
@@ -44,6 +48,8 @@ class MapFragment : Fragment() {
             override fun onMarkerDrag(p0: Marker?) {
             }
         })
+
+
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(location))
     }
 
