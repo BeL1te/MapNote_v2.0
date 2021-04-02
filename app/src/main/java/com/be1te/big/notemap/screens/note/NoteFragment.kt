@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.be1te.big.notemap.R
 import com.be1te.big.notemap.databinding.FragmentNoteBinding
 import com.be1te.big.notemap.db.room.Note
+import com.be1te.big.notemap.screens.map.MapFragment
 import com.be1te.big.notemap.utilits.APP_ACTIVITY
 
 class NoteFragment : Fragment() {
@@ -22,6 +23,10 @@ class NoteFragment : Fragment() {
     ): View? {
         _binding = FragmentNoteBinding.inflate(layoutInflater, container, false)
         mCurrentNote = arguments?.getSerializable("note") as Note
+
+        val fragment = MapFragment()
+        parentFragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit()
+
         return mBinding.root
     }
 
@@ -35,7 +40,7 @@ class NoteFragment : Fragment() {
         mViewModel = ViewModelProvider(this).get(NoteFragmentViewModel::class.java)
         mViewModel.setTitle(mCurrentNote.title)
         mBinding.dateText.text = mCurrentNote.date
-        mBinding.contentText.text = mCurrentNote.content
+        mBinding.contentText.text = mCurrentNote.content // + mCurrentNote.coordinatesX + mCurrentNote.coordinatesY
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

@@ -14,15 +14,20 @@ fun doToast(text: String) {
 }
 
 @SuppressLint("SimpleDateFormat")
-fun currentData() : String {
+fun currentData(): String {
     val formatDate = SimpleDateFormat("dd.MM.yyyy")
     return formatDate.format(Date())
 }
 
-lateinit var APP_ACTIVITY: MainActivity
-lateinit var REPOSITORY: DatabaseRepository
-var COORDINATE_X by Delegates.notNull<Float>()
-var COORDINATE_Y by Delegates.notNull<Float>()
+
 const val TYPE_DATABASE = "type_database"
 const val TYPE_ROOM = "type_room"
 const val TYPE_FIREBASE = "type_firebase"
+lateinit var APP_ACTIVITY: MainActivity
+lateinit var REPOSITORY: DatabaseRepository
+
+//Долгота
+lateinit var COORDINATE_X: String
+
+//Широта
+lateinit var COORDINATE_Y: String

@@ -12,6 +12,8 @@ import com.be1te.big.notemap.R
 import com.be1te.big.notemap.databinding.FragmentListNoteBinding
 import com.be1te.big.notemap.db.room.Note
 import com.be1te.big.notemap.utilits.APP_ACTIVITY
+import com.be1te.big.notemap.utilits.COORDINATE_X
+import com.be1te.big.notemap.utilits.COORDINATE_Y
 import kotlinx.android.synthetic.main.fragment_list_note.*
 
 class ListNoteFragment : Fragment() {
@@ -37,6 +39,8 @@ class ListNoteFragment : Fragment() {
     }
 
     private fun initialization() {
+        COORDINATE_X = "0.0"
+        COORDINATE_Y = "0.0"
         mAdapter = NoteAdapter()
         mRecyclerView = mBinding.rvList
         mRecyclerView.adapter = mAdapter
@@ -63,6 +67,8 @@ class ListNoteFragment : Fragment() {
         fun click(note: Note) {
             val bundle = Bundle()
             bundle.putSerializable("note", note)
+            COORDINATE_X = note.coordinatesX
+            COORDINATE_Y = note.coordinatesY
             APP_ACTIVITY.navController.navigate(R.id.action_listNoteFragment_to_noteFragment, bundle)
         }
     }
