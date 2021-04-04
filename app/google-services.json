@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "755008743367",
+    "firebase_url": "https://mapnote-309318-default-rtdb.firebaseio.com",
+    "project_id": "mapnote-309318",
+    "storage_bucket": "mapnote-309318.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:755008743367:android:deec1da0ebe10008db5be2",
+        "android_client_info": {
+          "package_name": "com.be1te.big.notemap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "755008743367-nm4g6orcm1bsfvopi7189lujo9j8he3a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCY-mekRxUUg8FsQfOIvYLJkMg4xvGuTlU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "755008743367-nm4g6orcm1bsfvopi7189lujo9j8he3a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

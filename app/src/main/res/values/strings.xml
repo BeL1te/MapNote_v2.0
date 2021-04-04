@@ -13,4 +13,7 @@
     <string name="add_title">Title</string>
     <string name="add_content">Note</string>
     <string name="google_maps_key">AIzaSyAuWeO9IzC4i2LZZmFOUQusr_FQ22OuTbk</string>
+    <string name="enter_e_mail">Enter e-mail</string>
+    <string name="login">login</string>
+    <string name="enter_the_data">Enter the data</string>
 </resources>

@@ -18,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/main_start_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/bar_color"
@@ -70,4 +71,55 @@
             android:textColor="@color/text_note_color"
             android:textSize="@dimen/start_button_text_size" />
     </androidx.cardview.widget.CardView>
+
+    <EditText
+        android:id="@+id/enter_email"
+        android:layout_width="@dimen/second_cardview_width"
+        android:layout_height="@dimen/cardview_height"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/first_card_view"
+        android:hint="@string/enter_e_mail"
+        android:inputType="textEmailAddress"
+        android:layout_marginTop="@dimen/default_layout_margin"
+        android:visibility="invisible"/>
+
+    <EditText
+        android:id="@+id/enter_password"
+        android:layout_width="@dimen/second_cardview_width"
+        android:layout_height="@dimen/cardview_height"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/first_card_view"
+        android:inputType="textPassword"
+        android:hint="@string/enter_e_mail"
+        android:layout_marginTop="176dp"
+        android:visibility="invisible"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/fourth_card_view"
+        android:layout_width="@dimen/second_cardview_width"
+        android:layout_height="@dimen/cardview_height"
+        android:layout_marginTop="336dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="@dimen/first_corner_radius"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/first_card_view"
+        android:visibility="invisible">
+
+        <Button
+            android:id="@+id/btn_login_firebase"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/cardview_dark_background"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/login"
+            android:textColor="@color/text_note_color"
+            android:textSize="@dimen/start_button_text_size"
+            />
+    </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

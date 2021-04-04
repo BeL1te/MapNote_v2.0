@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import com.be1te.big.notemap.R
 import com.be1te.big.notemap.databinding.FragmentStartBinding
@@ -37,6 +38,15 @@ class StartFragment : Fragment() {
             mViewModel.initDatabase(TYPE_ROOM) {
                 APP_ACTIVITY.navController.navigate(R.id.action_startFragment_to_listNoteFragment)
             }
+        }
+
+        mBinding.btnFirebase.setOnClickListener {
+            mBinding.fourthCardView.isVisible = true
+            mBinding.enterEmail.isVisible = true
+            mBinding.enterPassword.isVisible = true
+            mBinding.thirdCardView.isVisible = false
+            mBinding.secondCardView.isVisible = false
+            mBinding.mainStartText.text = getString(R.string.enter_the_data)
         }
     }
 
