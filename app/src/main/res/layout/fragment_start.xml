@@ -81,7 +81,7 @@
         app:layout_constraintTop_toBottomOf="@+id/first_card_view"
         android:hint="@string/enter_e_mail"
         android:inputType="textEmailAddress"
-        android:layout_marginTop="@dimen/default_layout_margin"
+        android:layout_marginTop="@dimen/margin_email"
         android:visibility="invisible"/>
 
     <EditText
@@ -92,15 +92,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/first_card_view"
         android:inputType="textPassword"
-        android:hint="@string/enter_e_mail"
-        android:layout_marginTop="176dp"
+        android:hint="@string/enter_password"
+        android:layout_marginTop="@dimen/password_margin"
         android:visibility="invisible"/>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/fourth_card_view"
         android:layout_width="@dimen/second_cardview_width"
         android:layout_height="@dimen/cardview_height"
-        android:layout_marginTop="336dp"
+        android:layout_marginTop="@dimen/margin_btn_login"
         android:clickable="true"
         android:focusable="true"
         app:cardCornerRadius="@dimen/first_corner_radius"

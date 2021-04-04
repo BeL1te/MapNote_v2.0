@@ -16,4 +16,5 @@
     <string name="enter_e_mail">Enter e-mail</string>
     <string name="login">login</string>
     <string name="enter_the_data">Enter the data</string>
+    <string name="enter_password">Enter password</string>
 </resources>

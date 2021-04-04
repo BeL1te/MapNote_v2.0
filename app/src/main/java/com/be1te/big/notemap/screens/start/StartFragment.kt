@@ -9,8 +9,7 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import com.be1te.big.notemap.R
 import com.be1te.big.notemap.databinding.FragmentStartBinding
-import com.be1te.big.notemap.utilits.APP_ACTIVITY
-import com.be1te.big.notemap.utilits.TYPE_ROOM
+import com.be1te.big.notemap.utilits.*
 
 
 class StartFragment : Fragment() {
@@ -47,6 +46,21 @@ class StartFragment : Fragment() {
             mBinding.thirdCardView.isVisible = false
             mBinding.secondCardView.isVisible = false
             mBinding.mainStartText.text = getString(R.string.enter_the_data)
+
+            mBinding.btnLoginFirebase.setOnClickListener {
+                val emailInput = mBinding.enterEmail.text.toString()
+                val passwordInput = mBinding.enterPassword.text.toString()
+
+                if (emailInput.isNotEmpty() && passwordInput.isNotEmpty()) {
+                    EMAIL = mBinding.enterEmail.text.toString()
+                    PASSWORD = mBinding.enterPassword.text.toString()
+                    mViewModel.initDatabase(TYPE_FIREBASE) {
+                        APP_ACTIVITY.navController.navigate(R.id.action_startFragment_to_listNoteFragment)
+                    }
+                } else {
+                    doToast("Enter e-mail and password")
+                }
+            }
         }
     }
 

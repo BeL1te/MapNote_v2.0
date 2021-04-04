@@ -15,4 +15,7 @@
     <dimen name="first_corner_radius">20dp</dimen>
     <dimen name="width_for_enter_title">350dp</dimen>
     <dimen name="peekHeight">65dp</dimen>
+    <dimen name="password_margin">140dp</dimen>
+    <dimen name="margin_email">60dp</dimen>
+    <dimen name="margin_btn_login">240dp</dimen>
 </resources>
